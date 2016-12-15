@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <form action='/hello' method='POST'>
+      <% if (name) { %>
+        <h2><%= name %></h2>
+        <input type='hidden' name='hidden_name' value='<%= name %>'>
+        <input type='hidden' name='counter' value='<%= counter %>'>
+      <% } %>
+      <input type='text' name='name'>
+      <input type='submit'>
+    </form>
+
+    <% if(counter === 3) { %>
+      <a href='/?=<%= name %>'>/</a>
+    <% } %>
+  </body>
+</html>
