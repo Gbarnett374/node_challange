@@ -5,7 +5,7 @@
   </head>
   <body>
     <form action='/hello' method='POST'>
-      <% if (name) { %>
+      <% if (typeof name !== "undefined" && name) { %>
         <h2><%= name %></h2>
         <input type='hidden' name='hidden_name' value='<%= name %>'>
         <input type='hidden' name='counter' value='<%= counter %>'>
@@ -14,8 +14,8 @@
       <input type='submit'>
     </form>
 
-    <% if(counter === 3) { %>
-      <a href='/?=<%= name %>'>/</a>
+    <% if(typeof counter !== "undefined" && counter === 3) { %>
+      <a href='/?name=<%= name %>'>/</a>
     <% } %>
   </body>
 </html>
