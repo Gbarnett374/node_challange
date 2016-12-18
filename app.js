@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
   let name;
   let counter;
   if (req.query.name) {
-    name = req.query.name;
+    name = req.query.name.replace('Hello', 'Greetings');
   }
   res.render('index', { 
     name: name,
@@ -24,14 +24,14 @@ app.get('/', (req, res) => {
   });
 });
 
-app.post('/hello', (req, res) => {
+app.post('/show', (req, res) => {
   let name;
   let counter;
   if (req.body.hidden_name) {
-    name = req.body.hidden_name + ' ' + req.body.name;
+    name = `${req.body.hidden_name } ${req.body.name}`;
     counter = parseInt(req.body.counter) + 1;
   } else {
-    name = req.body.name
+    name = `Hello ${req.body.name}`;
     counter = 1;
   }
 
